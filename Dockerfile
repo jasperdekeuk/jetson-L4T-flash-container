@@ -28,7 +28,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Fix the shell (NVIDIA scripts hate dash)
-RUN ln -sf /bin/bash /bin/sh
+RUN #ln -sf /bin/bash /bin/sh
 
 WORKDIR /Linux_for_Tegra
 
