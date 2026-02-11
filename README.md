@@ -1,6 +1,6 @@
 # jetson-L4T-flash-container
 
-A minimal Docker-based environment for flashing NVIDIA Jetson devices using the official `Linux_for_Tegra` (L4T) tools —
+A minimal Docker-based environment for flashing NVIDIA Jetson devices using the official `Linux_for_Tegra` (L4T) tools,
 without requiring a specific host OS.
 
 ## Why?
@@ -12,11 +12,11 @@ Flashing Jetson devices normally requires:
 
 This project provides:
 
-- ✅ A clean Docker environment with all required dependencies
-- ✅ Full access to `Linux_for_Tegra` tools
-- ✅ No SDK Manager restrictions
-- ✅ Freedom to run any L4T flashing or recovery commands
-- ✅ Host OS independence
+- A clean Docker environment with all required dependencies
+- Full access to `Linux_for_Tegra` tools
+- No SDK Manager restrictions
+- Freedom to run any L4T flashing or recovery commands
+- Host OS independence
 
 You only need Docker/ Podman installed on your machine.
 
