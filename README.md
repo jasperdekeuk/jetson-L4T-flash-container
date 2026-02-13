@@ -39,7 +39,8 @@ You only need Docker/ Podman installed on your machine.
 3. Start the container in interactive mode and run your commands in the container
 ```shell
 docker run -it --rm --privileged --network host   -v /dev/bus/usb:/dev/bus/usb/   -v /dev:/dev   -v /run/nvidia_initrd_flash/docker_host_network:/run/nvidia_initrd_flash/docker_host_network   -v "${PWD}/Linux_for_Tegra":/Linux_for_Tegra:slave   -p 2222:22   ghcr.io/jasperdekeuk/jetson-l4t-flash-container:22.04
-``` 
+```
+> you can now run `lsusb` in the container and should see `NVIDIA Corp. APX` in the list, that is your jetson in recovery mode
 4. Install missing dependencies and fix file permissions
 ```shell
 sudo ./tools/l4t_flash_prerequisites.sh 
