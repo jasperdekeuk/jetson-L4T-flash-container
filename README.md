@@ -45,7 +45,10 @@ docker run -it --rm --privileged --network host   -v /dev/bus/usb:/dev/bus/usb/ 
 ```shell
 sudo ./tools/l4t_flash_prerequisites.sh 
 ```
-5. Run any command you usually do, like e.g. (QSPI for Jetson AGX Orin):
+5. Run any command you usually do, like e.g. (for Jetson AGX Orin):
 ```shell
+# update qspi
 sudo ./flash.sh p3737-0000-p3701-0000-qspi internal
+# flash
+sudo ./flash.sh jetson-agx-orin-devkit internal
 ```
