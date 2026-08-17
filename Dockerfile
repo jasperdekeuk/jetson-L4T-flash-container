@@ -25,7 +25,25 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     iproute2 \
     udev \
     vim \
+    abootimg \
+    sshpass \
+    zstd \
+    uuid-runtime \
+    dosfstools \
+    mtools \
+    kmod \
+    iputils-ping \
     && rm -rf /var/lib/apt/lists/*
+
+
+# Ubuntu 22.04's iputils-ping merged ping/ping6 into a single "ping" binary
+# and dropped the "ping6" symlink/command entirely. NVIDIA's
+ # l4t_initrd_flash_internal.sh (ping_device()) hard-codes "ping6" and swallows
+# its stdout/stderr, so a missing ping6 fails completely silently: no ICMPv6
+# echo-request is ever emitted, and the flash hangs at "Waiting for device to
+# expose ssh" with no visible error. iputils' ping detects IPv6 mode from its
+# own argv[0] basename, so a plain symlink is sufficient (no wrapper needed).
+RUN ln -sf "$(command -v ping)" /usr/bin/ping6
 
 # Fix the shell (NVIDIA scripts hate dash)
 RUN #ln -sf /bin/bash /bin/sh
